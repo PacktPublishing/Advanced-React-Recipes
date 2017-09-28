@@ -1,5 +1,3 @@
-const log = () => {
-  console.log('Hello World!');
-}
+import log from './log';
 
 log();
