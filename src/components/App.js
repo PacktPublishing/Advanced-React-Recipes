@@ -3,14 +3,26 @@ import Header from './Header';
 import RecipeList from './RecipeList';
 import Recipe from './Recipe';
 
-const App = () => (
-  <div>
-    <Header />
-    <main style={{ display: 'flex' }}>
-      <RecipeList style={{ flex: 2 }} />
-      <Recipe style={{ flex: 3 }} />
-    </main>
-  </div>
-);
+class App extends React.Component {
+  componentDidMount() {
+    fetch(`${API_URL}/v1/recipes`)
+    .then(res => res.json())
+    .then(json => {
+      console.log(json);
+    });
+  }
+
+  render () {
+    return (
+      <div>
+        <Header />
+        <main style={{ display: 'flex' }}>
+          <RecipeList style={{ flex: 2 }} />
+          <Recipe style={{ flex: 3 }} />
+        </main>
+      </div>
+    );
+  }
+}
 
 export default App;
