@@ -1,23 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const RecipeList = ({ className, style }) => (
+const RecipeList = ({ recipes, onClick, className, style }) => (
   <div className={className} style={style}>
     <h2>Recipes</h2>
     <ul>
-      <li>
-        <span>Creepy Halloween Skull Cupcakes</span>
-        <span>Dessert</span>
-      </li>
-      <li>
-        <span>Blueberry Sour Cream Coffee Cake</span>
-        <span>Dessert</span>
-      </li>
-      <li>
-        <span>Amazing Pork Tenderloin in the Slow Cooker</span>
-        <span>Meat</span>
-      </li>
+      {recipes.map(recipe => (
+        <li key={recipe.id} onClick={() => onClick(recipe.id)}>
+          <span>{recipe.name}</span>
+          <span>{recipe.category}</span>
+        </li>
+      ))}
     </ul>
   </div>
 );
+
+RecipeList.propTypes = {
+  recipes: PropTypes.array,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  style: PropTypes.object,
+};
 
 export default RecipeList;
