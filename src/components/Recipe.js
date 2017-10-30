@@ -1,33 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const Recipe = ({ recipe, className, style }) => {
   if (!recipe) {
     return (
-      <p className={className} style={style}>No recipe selected.</p>
+      <p
+        style={style}
+        className={classNames('h3 p2 bg-white italic center', className)}
+      >
+        No recipe selected.
+      </p>
     );
   }
 
   return (
-    <div className={className} style={style}>
-      <h2>{recipe.name}</h2>
-      <img src={recipe.image} />
-      <div>
-        <span>{recipe.category}</span>
-        <span>{recipe.calories} cal</span>
+    <div
+      style={style}
+      className={classNames('p2 bg-white', className)}
+    >
+      <h2 className="h2">
+        {recipe.name}
+      </h2>
+      <div className="flex flex-column">
+        <img className="fit" src={recipe.image} />
+        <div>
+          <span>{recipe.category}</span>
+          <span>{recipe.calories} cal</span>
+        </div>
+        <h3>Ingredients</h3>
+        <ul>
+          {recipe.ingredients.map(ingredient => (
+            <li key={ingredient}>{ingredient}</li>
+          ))}
+        </ul>
+        <h3>Steps</h3>
+        <ol>
+          {recipe.steps.map(step => (
+            <li>{step}</li>
+          ))}
+        </ol>
       </div>
-      <h3>Ingredients</h3>
-      <ul>
-        {recipe.ingredients.map(ingredient => (
-          <li>{ingredient}</li>
-        ))}
-      </ul>
-      <h3>Steps</h3>
-      <ol>
-        {recipe.steps.map(step => (
-          <li>{step}</li>
-        ))}
-      </ol>
     </div>
   );
 };
