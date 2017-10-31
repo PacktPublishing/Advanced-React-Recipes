@@ -15,21 +15,21 @@ class App extends React.Component {
 
   componentDidMount() {
     fetch(`${API_URL}/v1/recipes`)
-    .then(res => res.json())
-    .then(recipes => {
-      this.setState({ recipes })
-    });
+      .then(res => res.json())
+      .then((recipes) => {
+        this.setState({ recipes });
+      });
   }
 
   onRecipeClick = (id) => {
     fetch(`${API_URL}/v1/recipes/${id}`)
-    .then(res => res.json())
-    .then(recipe => {
-      this.setState({ currentRecipe: recipe })
-    });
+      .then(res => res.json())
+      .then((recipe) => {
+        this.setState({ currentRecipe: recipe });
+      });
   }
 
-  render () {
+  render() {
     const { recipes, currentRecipe } = this.state;
 
     return (

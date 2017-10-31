@@ -23,7 +23,7 @@ const Recipe = ({ recipe, className, style }) => {
         {recipe.name}
       </h2>
       <div className="flex flex-column">
-        <img className="fit" src={recipe.image} />
+        <img alt={recipe.name} className="fit" src={recipe.image} />
         <div>
           <span>{recipe.category}</span>
           <span>{recipe.calories} cal</span>
@@ -45,10 +45,10 @@ const Recipe = ({ recipe, className, style }) => {
   );
 };
 
-Recipe.PropTypes = {
+Recipe.propTypes = {
   recipe: PropTypes.object,
   className: PropTypes.string,
-  style: PropTypes.object
+  style: PropTypes.object,
 };
 
 export default Recipe;
