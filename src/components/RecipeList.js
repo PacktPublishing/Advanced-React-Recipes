@@ -4,12 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const RecipeList = ({
-  recipes,
-  onClick,
-  className,
-  style,
-}) => (
+const RecipeList = ({ recipes, onClick, className, style }) => (
   <div className={className} style={style}>
     <h2 className="h2">Recipes</h2>
     <ul className="list-reset">

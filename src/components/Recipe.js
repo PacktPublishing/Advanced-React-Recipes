@@ -15,13 +15,8 @@ const Recipe = ({ recipe, className, style }) => {
   }
 
   return (
-    <div
-      style={style}
-      className={classNames('p2 bg-white', className)}
-    >
-      <h2 className="h2">
-        {recipe.name}
-      </h2>
+    <div style={style} className={classNames('p2 bg-white', className)}>
+      <h2 className="h2">{recipe.name}</h2>
       <div className="flex flex-column">
         <img alt={recipe.name} className="fit" src={recipe.image} />
         <div>
@@ -35,11 +30,7 @@ const Recipe = ({ recipe, className, style }) => {
           ))}
         </ul>
         <h3>Steps</h3>
-        <ol>
-          {recipe.steps.map(step => (
-            <li>{step}</li>
-          ))}
-        </ol>
+        <ol>{recipe.steps.map(step => <li>{step}</li>)}</ol>
       </div>
     </div>
   );

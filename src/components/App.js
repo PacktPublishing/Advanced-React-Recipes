@@ -16,18 +16,18 @@ class App extends React.Component {
   componentDidMount() {
     fetch(`${API_URL}/v1/recipes`)
       .then(res => res.json())
-      .then((recipes) => {
+      .then(recipes => {
         this.setState({ recipes });
       });
   }
 
-  onRecipeClick = (id) => {
+  onRecipeClick = id => {
     fetch(`${API_URL}/v1/recipes/${id}`)
       .then(res => res.json())
-      .then((recipe) => {
+      .then(recipe => {
         this.setState({ currentRecipe: recipe });
       });
-  }
+  };
 
   render() {
     const { recipes, currentRecipe } = this.state;
@@ -42,11 +42,7 @@ class App extends React.Component {
             onClick={this.onRecipeClick}
             style={{ flex: 2 }}
           />
-          <Recipe
-            className="ml4"
-            recipe={currentRecipe}
-            style={{ flex: 3 }}
-          />
+          <Recipe className="ml4" recipe={currentRecipe} style={{ flex: 3 }} />
         </main>
       </div>
     );
