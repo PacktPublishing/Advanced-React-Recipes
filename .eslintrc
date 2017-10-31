@@ -1,8 +1,8 @@
 {
   "parser"  : "babel-eslint",
   "extends" : [
-    "airbnb",
-    "prettier"
+    "prettier",
+    "airbnb"
   ],
   "plugins": [],
   "env": {
@@ -13,8 +13,10 @@
     "API_URL": true
   },
   "rules": {
-    "react/jsx-filename-extension": ["off"],
-    "react/forbid-prop-types": ["off"],
-    "react/require-default-props": ["off"],
+    "arrow-parens": 0,
+    "object-curly-newline": 0,
+    "react/jsx-filename-extension": 0,
+    "react/forbid-prop-types": 0,
+    "react/require-default-props": 0,
   }
 }
