@@ -6,17 +6,18 @@ require('dotenv').config();
 
 module.exports = {
   context: path.join(__dirname, 'src'),
-  entry: "./index.js",
+  entry: './index.js',
   output: {
-   path: path.resolve(__dirname, "dist"),
-   filename: "bundle.js",
-   publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -25,8 +26,11 @@ module.exports = {
       {
         test: /\.(png|jpg)$/,
         loader: 'file-loader',
-      }
-    ]
+      },
+    ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -35,6 +39,6 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       API_URL: JSON.stringify(process.env.API_URL),
-    })
-  ]
+    }),
+  ],
 };
