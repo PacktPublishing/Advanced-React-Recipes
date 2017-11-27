@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Home from './Home';
 import Favorites from './Favorites';
+import Recipe from './Recipe';
 import NotFound from './NotFound';
 import Header from '../components/Header';
 
@@ -59,6 +60,7 @@ class App extends React.Component {
                 />
               )}
             />
+            <Route path="/recipe/:id" component={Recipe} />
             <Route component={NotFound} />
           </Switch>
         </main>

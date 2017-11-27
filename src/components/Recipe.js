@@ -1,45 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import RecipeDetail from './RecipeDetail';
 
-const Recipe = ({ recipe, className, style }) => {
-  if (!recipe) {
-    return (
-      <p
-        style={style}
-        className={classNames('h3 p2 bg-white italic center', className)}
-      >
-        No recipe selected.
-      </p>
-    );
+class Recipe extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      recipe: null,
+      loading: false,
+    };
   }
 
-  return (
-    <div style={style} className={classNames('p2 bg-white', className)}>
-      <h2 className="h2">{recipe.name}</h2>
-      <div className="flex flex-column">
-        <img alt={recipe.name} className="fit" src={recipe.image} />
-        <div>
-          <span>{recipe.category}</span>
-          <span>{recipe.calories} cal</span>
-        </div>
-        <h3>Ingredients</h3>
-        <ul>
-          {recipe.ingredients.map(ingredient => (
-            <li key={ingredient}>{ingredient}</li>
-          ))}
-        </ul>
-        <h3>Steps</h3>
-        <ol>{recipe.steps.map(step => <li key={step}>{step}</li>)}</ol>
-      </div>
-    </div>
-  );
-};
+  componentWillMount() {
+    const { id } = this.props.match.params;
+
+    this.setState({ loading: true });
+
+    fetch(`${API_URL}/v1/recipes/${id}`)
+      .then(res => res.json())
+      .then(recipe => {
+        this.setState({ recipe, loading: false });
+      });
+  }
+
+  render() {
+    const { recipe, loading } = this.state;
+
+    return (
+      <main className="px4">
+        <RecipeDetail recipe={recipe} loading={loading} />
+      </main>
+    );
+  }
+}
 
 Recipe.propTypes = {
-  recipe: PropTypes.object,
-  className: PropTypes.string,
-  style: PropTypes.object,
+  match: PropTypes.object,
 };
 
 export default Recipe;

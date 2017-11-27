@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RecipeList from '../components/RecipeList';
-import Recipe from '../components/Recipe';
+import RecipeDetail from '../components/RecipeDetail';
 
 class Home extends React.Component {
   constructor(props) {
@@ -35,7 +35,11 @@ class Home extends React.Component {
             onFavorited={toggleFavorite}
           />
         </div>
-        <Recipe className="ml4" recipe={currentRecipe} style={{ flex: 3 }} />
+        <RecipeDetail
+          className="ml4"
+          recipe={currentRecipe}
+          style={{ flex: 3 }}
+        />
       </main>
     );
   }
