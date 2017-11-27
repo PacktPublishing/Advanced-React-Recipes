@@ -1,22 +1,17 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-
 import React from 'react';
 import PropTypes from 'prop-types';
+import RecipeListItem from './RecipeListItem';
 
-const RecipeList = ({ recipes, onClick, className, style }) => (
+const RecipeList = ({ recipes, favorites, className, style, ...props }) => (
   <div className={className} style={style}>
-    <h2 className="h2">Recipes</h2>
     <ul className="list-reset">
       {recipes.map(recipe => (
-        <li
+        <RecipeListItem
           key={recipe.id}
-          onClick={() => onClick(recipe.id)}
-          className="py2 border-bottom border-bottom-dashed pointer"
-        >
-          <span>{recipe.name}</span>
-          <span>{recipe.category}</span>
-        </li>
+          recipe={recipe}
+          favorited={favorites.includes(recipe.id)}
+          {...props}
+        />
       ))}
     </ul>
   </div>
@@ -24,6 +19,7 @@ const RecipeList = ({ recipes, onClick, className, style }) => (
 
 RecipeList.propTypes = {
   recipes: PropTypes.array,
+  favorites: PropTypes.array,
   onClick: PropTypes.func,
   className: PropTypes.string,
   style: PropTypes.object,

@@ -30,7 +30,7 @@ const Recipe = ({ recipe, className, style }) => {
           ))}
         </ul>
         <h3>Steps</h3>
-        <ol>{recipe.steps.map(step => <li>{step}</li>)}</ol>
+        <ol>{recipe.steps.map(step => <li key={step}>{step}</li>)}</ol>
       </div>
     </div>
   );
