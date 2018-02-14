@@ -4,10 +4,13 @@
     "prettier",
     "airbnb"
   ],
-  "plugins": [],
+  "plugins": [
+    "jest"
+  ],
   "env": {
     "es6" : true,
     "browser" : true,
+    "jest/globals": true,
   },
   "globals" : {
     "API_URL": true
