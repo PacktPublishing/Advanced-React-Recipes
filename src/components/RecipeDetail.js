@@ -35,14 +35,22 @@ const RecipeDetail = ({ recipe, loading, className, style }) => {
           <span>{recipe.category}</span>
           <span>{recipe.calories} cal</span>
         </div>
-        <h3>Ingredients</h3>
-        <ul>
-          {recipe.ingredients.map(ingredient => (
-            <li key={ingredient}>{ingredient}</li>
-          ))}
-        </ul>
-        <h3>Steps</h3>
-        <ol>{recipe.steps.map(step => <li key={step}>{step}</li>)}</ol>
+        {recipe.ingredients && (
+          <div>
+            <h3>Ingredients</h3>
+            <ul>
+              {recipe.ingredients.map(ingredient => (
+                <li key={ingredient}>{ingredient}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {recipe.steps && (
+          <div>
+            <h3>Steps</h3>
+            <ol>{recipe.steps.map(step => <li key={step}>{step}</li>)}</ol>
+          </div>
+        )}
         <Link
           className="right-align"
           to={`/recipe/${recipe.id}`}

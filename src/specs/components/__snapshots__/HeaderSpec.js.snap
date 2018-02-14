@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Should render Header 1`] = `
+<header
+  className="flex justify-between items-center px4"
+>
+  <h1
+    className="h1"
+  >
+    🍽 MyRecipes
+  </h1>
+  <nav>
+    <a
+      aria-current={false}
+      className="p1 mx2 black rounded text-decoration-none"
+      href="/"
+      onClick={[Function]}
+      style={undefined}
+    >
+      Home
+    </a>
+    <a
+      aria-current={false}
+      className="p1 mx2 black rounded text-decoration-none"
+      href="/favorites"
+      onClick={[Function]}
+      style={undefined}
+    >
+      Favorites
+    </a>
+  </nav>
+</header>
+`;

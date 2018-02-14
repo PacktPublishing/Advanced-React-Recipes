@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RecipeDetail /> Should not render ingredients if none 1`] = `
+<div
+  className="p2 bg-white"
+  style={undefined}
+>
+  <h2
+    className="h2"
+  >
+    Test recipe
+  </h2>
+  <div
+    className="flex flex-column"
+  >
+    <img
+      alt="Test recipe"
+      className="fit"
+      src="test url"
+    />
+    <div>
+      <span>
+        Dessert
+      </span>
+      <span>
+        100
+         cal
+      </span>
+    </div>
+    <div>
+      <h3>
+        Steps
+      </h3>
+      <ol>
+        <li>
+          Steps 1
+        </li>
+        <li>
+          Steps 2
+        </li>
+      </ol>
+    </div>
+    <a
+      className="right-align"
+      href="/recipe/1"
+      onClick={[Function]}
+    >
+      Detail
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<RecipeDetail /> Should not render steps if none 1`] = `
+<div
+  className="p2 bg-white"
+  style={undefined}
+>
+  <h2
+    className="h2"
+  >
+    Test recipe
+  </h2>
+  <div
+    className="flex flex-column"
+  >
+    <img
+      alt="Test recipe"
+      className="fit"
+      src="test url"
+    />
+    <div>
+      <span>
+        Dessert
+      </span>
+      <span>
+        100
+         cal
+      </span>
+    </div>
+    <div>
+      <h3>
+        Ingredients
+      </h3>
+      <ul>
+        <li>
+          Ingrendient 1
+        </li>
+        <li>
+          Ingrendient 2
+        </li>
+      </ul>
+    </div>
+    <a
+      className="right-align"
+      href="/recipe/1"
+      onClick={[Function]}
+    >
+      Detail
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<RecipeDetail /> Should render passed recipe 1`] = `
+<div
+  className="p2 bg-white"
+  style={undefined}
+>
+  <h2
+    className="h2"
+  >
+    Test recipe
+  </h2>
+  <div
+    className="flex flex-column"
+  >
+    <img
+      alt="Test recipe"
+      className="fit"
+      src="test url"
+    />
+    <div>
+      <span>
+        Dessert
+      </span>
+      <span>
+        100
+         cal
+      </span>
+    </div>
+    <div>
+      <h3>
+        Ingredients
+      </h3>
+      <ul>
+        <li>
+          Ingrendient 1
+        </li>
+        <li>
+          Ingrendient 2
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>
+        Steps
+      </h3>
+      <ol>
+        <li>
+          Steps 1
+        </li>
+        <li>
+          Steps 2
+        </li>
+      </ol>
+    </div>
+    <a
+      className="right-align"
+      href="/recipe/1"
+      onClick={[Function]}
+    >
+      Detail
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<RecipeDetail /> Should render zero state if no recipe passed 1`] = `
+<p
+  className="h3 p2 bg-white italic center"
+  style={undefined}
+>
+  No recipe selected.
+</p>
+`;

@@ -25,4 +25,9 @@ RecipeList.propTypes = {
   style: PropTypes.object,
 };
 
+RecipeList.defaultProps = {
+  recipes: [],
+  favorites: [],
+};
+
 export default RecipeList;
