@@ -22,17 +22,6 @@ class App extends React.Component {
       });
   }
 
-  toggleFavorite = id => {
-    this.setState(({ favorites, ...state }) => {
-      const idx = favorites.indexOf(id);
-
-      if (idx !== -1) {
-        return { ...state, favorites: favorites.filter(f => f !== id) };
-      }
-      return { ...state, favorites: [...favorites, id] };
-    });
-  };
-
   render() {
     return (
       <BrowserRouter>
@@ -44,21 +33,11 @@ class App extends React.Component {
             <Route
               exact
               path="/"
-              render={() => (
-                <Home
-                  recipes={this.state.recipes}
-                  toggleFavorite={this.toggleFavorite}
-                />
-              )}
+              render={() => <Home recipes={this.state.recipes} />}
             />
             <Route
               path="/favorites"
-              render={() => (
-                <Favorites
-                  recipes={this.state.recipes}
-                  toggleFavorite={this.toggleFavorite}
-                />
-              )}
+              render={() => <Favorites recipes={this.state.recipes} />}
             />
             <Route path="/recipe/:id" component={Recipe} />
             <Route component={NotFound} />
