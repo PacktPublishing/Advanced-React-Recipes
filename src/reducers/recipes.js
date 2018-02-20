@@ -1,6 +1,4 @@
-const initialState = {
-  someData: 'Hey!!',
-};
+const initialState = [];
 
 const ACTION_HANDLERS = {};
 

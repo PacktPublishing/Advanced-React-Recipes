@@ -1,21 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import RecipeList from '../components/RecipeList';
 
-const Favorites = ({ state, toggleFavorite }) => (
+const Favorites = ({ recipes, favorites, toggleFavorite }) => (
   <main className="px4">
     <h2 className="h2">Favorites</h2>
     <RecipeList
-      recipes={state.recipes.filter(r => state.favorites.includes(r.id))}
-      favorites={state.favorites}
+      recipes={recipes.filter(r => favorites.includes(r.id))}
+      favorites={favorites}
       onFavorited={toggleFavorite}
     />
   </main>
 );
 
 Favorites.propTypes = {
-  state: PropTypes.object,
+  recipes: PropTypes.array,
+  favorites: PropTypes.array,
   toggleFavorite: PropTypes.func,
 };
 
-export default Favorites;
+const mapStateToProps = state => ({ favorites: state.favorites });
+
+export default connect(mapStateToProps)(Favorites);

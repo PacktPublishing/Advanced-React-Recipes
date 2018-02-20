@@ -11,10 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      recipes: [],
-      favorites: [],
-    };
+    this.state = { recipes: [] };
   }
 
   componentDidMount() {
@@ -48,14 +45,17 @@ class App extends React.Component {
               exact
               path="/"
               render={() => (
-                <Home state={this.state} toggleFavorite={this.toggleFavorite} />
+                <Home
+                  recipes={this.state.recipes}
+                  toggleFavorite={this.toggleFavorite}
+                />
               )}
             />
             <Route
               path="/favorites"
               render={() => (
                 <Favorites
-                  state={this.state}
+                  recipes={this.state.recipes}
                   toggleFavorite={this.toggleFavorite}
                 />
               )}
