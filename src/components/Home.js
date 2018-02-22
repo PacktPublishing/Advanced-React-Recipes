@@ -17,7 +17,7 @@ class Home extends React.Component {
 
   onRecipeClick = id => {
     this.props.loadRecipe(id).then(action => {
-      this.setState({ currentRecipe: action.recipe });
+      this.setState({ currentRecipe: action.data });
     });
   };
 
