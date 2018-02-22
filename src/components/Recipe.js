@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import RecipeDetail from './RecipeDetail';
+import { loadRecipe } from '../actions/recipes';
 
 class Recipe extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      recipe: null,
       loading: false,
     };
   }
@@ -17,15 +18,14 @@ class Recipe extends React.Component {
 
     this.setState({ loading: true });
 
-    fetch(`${API_URL}/v1/recipes/${id}`)
-      .then(res => res.json())
-      .then(recipe => {
-        this.setState({ recipe, loading: false });
-      });
+    this.props.loadRecipe(id).then(() => {
+      this.setState({ loading: false });
+    });
   }
 
   render() {
-    const { recipe, loading } = this.state;
+    const { recipe } = this.props;
+    const { loading } = this.state;
 
     return (
       <main className="px4">
@@ -37,6 +37,16 @@ class Recipe extends React.Component {
 
 Recipe.propTypes = {
   match: PropTypes.object,
+  recipe: PropTypes.object,
+  loadRecipe: PropTypes.func,
 };
 
-export default Recipe;
+const mapStateToProps = (state, props) => {
+  const { id } = props.match.params;
+
+  return { recipe: state.recipes.find(r => r.id === parseInt(id, 10)) };
+};
+
+const mapDispatchToProps = { loadRecipe };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Recipe);

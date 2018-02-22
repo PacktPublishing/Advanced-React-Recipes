@@ -21,7 +21,10 @@ Favorites.propTypes = {
   onToggleFavorite: PropTypes.func,
 };
 
-const mapStateToProps = state => ({ favorites: state.favorites });
+const mapStateToProps = state => ({
+  recipes: state.recipes,
+  favorites: state.favorites,
+});
 
 const mapDispatchToProps = { onToggleFavorite: toggleFavorite };
 

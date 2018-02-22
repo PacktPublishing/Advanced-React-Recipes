@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import RecipeList from '../components/RecipeList';
 import RecipeDetail from '../components/RecipeDetail';
+import { loadRecipe } from '../actions/recipes';
 import { toggleFavorite } from '../actions/favorites';
 
 class Home extends React.Component {
@@ -15,11 +16,9 @@ class Home extends React.Component {
   }
 
   onRecipeClick = id => {
-    fetch(`${API_URL}/v1/recipes/${id}`)
-      .then(res => res.json())
-      .then(recipe => {
-        this.setState({ currentRecipe: recipe });
-      });
+    this.props.loadRecipe(id).then(action => {
+      this.setState({ currentRecipe: action.recipe });
+    });
   };
 
   render() {
@@ -50,11 +49,15 @@ class Home extends React.Component {
 Home.propTypes = {
   recipes: PropTypes.array,
   favorites: PropTypes.array,
+  loadRecipe: PropTypes.func,
   onToggleFavorite: PropTypes.func,
 };
 
-const mapStateToProps = state => ({ favorites: state.favorites });
+const mapStateToProps = state => ({
+  recipes: state.recipes,
+  favorites: state.favorites,
+});
 
-const mapDispatchToProps = { onToggleFavorite: toggleFavorite };
+const mapDispatchToProps = { onToggleFavorite: toggleFavorite, loadRecipe };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
