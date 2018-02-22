@@ -3,8 +3,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import persistState from 'redux-localstorage';
 import { makeRootReducer } from '../reducers';
+import test from './testMiddleware';
 
-const middleware = [thunk];
+const middleware = [thunk, test];
 
 if (process.env.NODE_ENV !== 'production') {
   const { createLogger } = require('redux-logger');
