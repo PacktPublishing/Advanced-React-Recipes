@@ -11,7 +11,10 @@ if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger({ collapsed: true, diff: true }));
 }
 
-const enhancer = compose(applyMiddleware(...middleware), persistState());
+const enhancer = compose(
+  applyMiddleware(...middleware),
+  persistState(['recipes', 'favorites']),
+);
 
 // Store Instantiation and HMR Setup
 const store = createStore(makeRootReducer(), enhancer);

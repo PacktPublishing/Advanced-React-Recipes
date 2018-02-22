@@ -1,17 +1,16 @@
 @import "basscss";
 @import "basscss-colors";
 @import "basscss-background-colors";
+@import "./colors.css";
 @import "./fonts.css";
+@import "./layout.css";
 @import "./borders.css";
 @import "./shame.css";
 
 :root {
   --h1: 70px;
   --h2: 50px;
-  --lime: #cdebdb;
-  --black: #222;
 }
-
 
 * {
   margin: 0px;

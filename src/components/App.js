@@ -6,7 +6,8 @@ import Home from './Home';
 import Favorites from './Favorites';
 import Recipe from './Recipe';
 import NotFound from './NotFound';
-import Header from '../components/Header';
+import Header from './Header';
+import RootModal from './RootModal';
 import { loadRecipes } from '../actions/recipes';
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
       <BrowserRouter>
         <main>
           <Header />
+          <RootModal />
 
           <Switch>
             <Redirect from="/home" to="/" />

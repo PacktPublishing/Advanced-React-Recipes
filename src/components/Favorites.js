@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import RecipeList from '../components/RecipeList';
+import { showModal } from '../actions/modals';
 import { toggleFavorite } from '../actions/favorites';
 
 const Favorites = ({ recipes, favorites, onToggleFavorite }) => (
@@ -26,6 +27,13 @@ const mapStateToProps = state => ({
   favorites: state.favorites,
 });
 
-const mapDispatchToProps = { onToggleFavorite: toggleFavorite };
+const mapDispatchToProps = dispatch => ({
+  onToggleFavorite: recipeId => {
+    const message = 'Are you sure you want to unfavorite this recipe?';
+    const onSubmit = () => dispatch(toggleFavorite(recipeId));
+
+    dispatch(showModal('CONFIRM_MODAL', { message, onSubmit }));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

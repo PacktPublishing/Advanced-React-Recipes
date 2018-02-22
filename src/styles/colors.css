@@ -1,0 +1,9 @@
+:root {
+  --lime: #cdebdb;
+  --black: #222;
+  --black-muted: rgba(0, 0, 0, 0.30);
+}
+
+.bg-black-muted {
+  background-color: var(--black-muted);
+}
