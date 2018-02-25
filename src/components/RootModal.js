@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose, branch, renderNothing } from 'recompose';
-import ConfirmModal from './ConfirmModal';
+import UnfavoriteModal from './UnfavoriteModal';
 import { hideModal } from '../actions/modals';
 
 const MODAL_COMPONENTS = {
-  CONFIRM_MODAL: ConfirmModal,
+  UNFAVORITE_MODAL: UnfavoriteModal,
 };
 
 /* eslint no-shadow: "off" */
