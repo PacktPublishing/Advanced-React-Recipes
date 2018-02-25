@@ -5,12 +5,13 @@ exports[`<RecipeListItem /> Should render favorited state 1`] = `
   className="py2 border-bottom border-bottom-dashed pointer"
   onClick={[Function]}
 >
-  <span
+  <div
+    className="inline-block animated"
     onClick={[Function]}
     role="button"
   >
     ✅
-  </span>
+  </div>
   <span>
     Test recipe
   </span>
@@ -25,12 +26,13 @@ exports[`<RecipeListItem /> Should render passed recipe 1`] = `
   className="py2 border-bottom border-bottom-dashed pointer"
   onClick={[Function]}
 >
-  <span
+  <div
+    className="inline-block animated"
     onClick={[Function]}
     role="button"
   >
     ⬜️
-  </span>
+  </div>
   <span>
     Test recipe
   </span>

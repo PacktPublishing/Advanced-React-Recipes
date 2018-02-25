@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 import React from 'react';
 import PropTypes from 'prop-types';
+import Checkbox from './Checkbox';
 
 const RecipeListItem = ({ recipe, favorited, onClick, onFavorited }) => (
   <li
@@ -10,15 +11,13 @@ const RecipeListItem = ({ recipe, favorited, onClick, onFavorited }) => (
     onClick={() => onClick(recipe.id)}
     className="py2 border-bottom border-bottom-dashed pointer"
   >
-    <span
-      role="button"
+    <Checkbox
+      active={favorited}
       onClick={e => {
         e.stopPropagation();
         onFavorited(recipe.id);
       }}
-    >
-      {favorited ? '✅' : '⬜️'}
-    </span>
+    />
     <span>{recipe.name}</span>
     <span>{recipe.category}</span>
   </li>
