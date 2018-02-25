@@ -2,7 +2,7 @@
 
 exports[`<RecipeListItem /> Should render favorited state 1`] = `
 <li
-  className="py2 border-bottom border-bottom-dashed pointer"
+  className="py2 border-bottom border-bottom-dashed pointer nowrap"
   onClick={[Function]}
 >
   <div
@@ -23,7 +23,7 @@ exports[`<RecipeListItem /> Should render favorited state 1`] = `
 
 exports[`<RecipeListItem /> Should render passed recipe 1`] = `
 <li
-  className="py2 border-bottom border-bottom-dashed pointer"
+  className="py2 border-bottom border-bottom-dashed pointer nowrap"
   onClick={[Function]}
 >
   <div

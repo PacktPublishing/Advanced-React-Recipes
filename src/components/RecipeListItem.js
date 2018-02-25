@@ -9,7 +9,7 @@ const RecipeListItem = ({ recipe, favorited, onClick, onFavorited }) => (
   <li
     key={recipe.id}
     onClick={() => onClick(recipe.id)}
-    className="py2 border-bottom border-bottom-dashed pointer"
+    className="py2 border-bottom border-bottom-dashed pointer nowrap"
   >
     <Checkbox
       active={favorited}

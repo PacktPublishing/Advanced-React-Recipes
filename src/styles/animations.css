@@ -1,0 +1,10 @@
+.slideOutRight-leave {
+  opacity: 1;
+  margin-left: 0px;
+}
+
+.slideOutRight-leave.slideOutRight-leave-active {
+  opacity: 0.01;
+  margin-left: 100%;
+  transition: all 300ms ease-in;
+}
