@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { compose, branch, renderNothing } from 'recompose';
 import ConfirmModal from './ConfirmModal';
 import { hideModal } from '../actions/modals';
 
@@ -10,10 +11,6 @@ const MODAL_COMPONENTS = {
 
 /* eslint no-shadow: "off" */
 const RootModal = ({ modalType, modalProps, hideModal }) => {
-  if (!modalType) {
-    return null;
-  }
-
   const SpecificModal = MODAL_COMPONENTS[modalType];
   return (
     <SpecificModal
@@ -30,4 +27,7 @@ RootModal.propTypes = {
   hideModal: PropTypes.func,
 };
 
-export default connect(state => state.modals, { hideModal })(RootModal);
+export default compose(
+  connect(state => state.modals, { hideModal }),
+  branch(props => !props.modalType, renderNothing),
+)(RootModal);

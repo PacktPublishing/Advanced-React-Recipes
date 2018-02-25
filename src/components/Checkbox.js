@@ -3,41 +3,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { compose, withState, withHandlers } from 'recompose';
 
-class Checkbox extends React.Component {
-  state = { animationActive: false };
-
-  onClick = e => {
-    this.setState({ animationActive: true });
-
-    setTimeout(() => {
-      this.setState({ animationActive: false });
-    }, 250);
-
-    this.props.onClick(e);
-  };
-
-  render() {
-    const { active } = this.props;
-    const { animationActive } = this.state;
-
-    return (
-      <div
-        role="button"
-        onClick={this.onClick}
-        className={classNames('inline-block animated', {
-          bounceIn: animationActive,
-        })}
-      >
-        {active ? '✅' : '⬜️'}
-      </div>
-    );
-  }
-}
+const Checkbox = ({ animationActive, active, onClick }) => (
+  <div
+    role="button"
+    onClick={onClick}
+    className={classNames('inline-block animated', {
+      bounceIn: animationActive,
+    })}
+  >
+    {active ? '✅' : '⬜️'}
+  </div>
+);
 
 Checkbox.propTypes = {
   active: PropTypes.bool,
+  animationActive: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
-export default Checkbox;
+const onClick = props => e => {
+  props.setAnimationActive(true);
+
+  setTimeout(() => {
+    props.setAnimationActive(false);
+  }, 250);
+
+  props.onClick(e);
+};
+
+export default compose(
+  withState('animationActive', 'setAnimationActive', false),
+  withHandlers({ onClick }),
+)(Checkbox);
