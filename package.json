@@ -12,7 +12,8 @@
     "postinstall": "npm run build",
     "test": "./node_modules/.bin/jest",
     "lint": "node_modules/.bin/eslint src/",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "deploy": "npm run build && node_modules/.bin/surge ./dist reactrecipes.surge.sh"
   },
   "lint-staged": {
     "*.js": [
