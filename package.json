@@ -5,8 +5,9 @@
   "author": "Diego Muracciole <diegomuracciole@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server",
-    "build": "./node_modules/.bin/webpack",
+    "start": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.config.js",
+    "build": "./node_modules/.bin/webpack -p --config ./config/webpack.prod.config.js",
+    "prebuild": "rimraf ./dist",
     "test": "./node_modules/.bin/jest",
     "lint": "node_modules/.bin/eslint src/",
     "precommit": "lint-staged"
@@ -47,6 +48,7 @@
     "postcss-loader": "^2.0.8",
     "prettier": "^1.7.4",
     "react-test-renderer": "^16.2.0",
+    "rimraf": "^2.6.2",
     "style-loader": "^0.19.0",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
