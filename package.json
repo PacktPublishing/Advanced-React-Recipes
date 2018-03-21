@@ -9,6 +9,7 @@
     "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.config.js",
     "build": "./node_modules/.bin/webpack -p --config ./config/webpack.prod.config.js",
     "prebuild": "rimraf ./dist",
+    "postinstall": "npm run build",
     "test": "./node_modules/.bin/jest",
     "lint": "node_modules/.bin/eslint src/",
     "precommit": "lint-staged"
